@@ -71,7 +71,7 @@ impl<'a> Iterator for PrimeFactorIter<'a> {
 			// assumes that prime_i starts low enough to not be out of bounds
 			let prime = self.cache.primes[self.prime_i];
 
-			if self.num == 1 {
+			if self.num <= 1 {
 				return None;
 			} else if self.num % prime == 0 {
 				self.num /= prime;
