@@ -5,6 +5,11 @@ pub struct PrimeIter<'a> {
 	cache: &'a mut PrimeCache,
 	i: usize,
 }
+pub struct PrimeFactorIter<'a> {
+	cache: &'a mut PrimeCache,
+	num: u64,
+	prime_i: usize,
+}
 	
 impl PrimeCache {
 	pub fn new() -> PrimeCache {
@@ -41,6 +46,10 @@ impl PrimeCache {
 	pub fn iter_mut(&mut self) -> PrimeIter {
 		PrimeIter { cache: self, i: 0 }
 	}
+
+	pub fn factors(&mut self, x: u64) -> PrimeFactorIter {
+		PrimeFactorIter { cache: self, num: x, prime_i: 0 }
+	}
 }
 
 impl<'a> Iterator for PrimeIter<'a> {
@@ -51,5 +60,28 @@ impl<'a> Iterator for PrimeIter<'a> {
 			self.cache.next_prime();
 		}
 		Some(*self.cache.primes.get(self.i - 1).unwrap())
+	}
+}
+
+impl<'a> Iterator for PrimeFactorIter<'a> {
+	type Item = u64;
+
+	fn next(&mut self) -> Option<u64> {
+		loop {
+			// assumes that prime_i starts low enough to not be out of bounds
+			let prime = self.cache.primes[self.prime_i];
+
+			if self.num == 1 {
+				return None;
+			} else if self.num % prime == 0 {
+				self.num /= prime;
+				return Some(prime);
+			} else {
+				self.prime_i += 1;
+				if self.cache.primes.len() <= self.prime_i {
+					self.cache.next_prime();
+				}
+			}
+		}
 	}
 }
