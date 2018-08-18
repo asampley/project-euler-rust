@@ -3,11 +3,11 @@ mod prime;
 
 #[macro_use]
 mod mods;
-mods!(p1,p2,p3,p4);
+mods!(p1,p2,p3,p4,p5);
 
 #[macro_use]
 mod problems;
 
 fn main() {
-	print_problems!(p1,p2,p3,p4);
+	print_problems!(p1,p2,p3,p4,p5);
 }
