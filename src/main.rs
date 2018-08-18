@@ -1,8 +1,13 @@
 mod fibonacci;
-mod p1;
-mod p2;
+mod prime;
+
+#[macro_use]
+mod mods;
+mods!(p1,p2,p3,p4);
+
+#[macro_use]
+mod problems;
 
 fn main() {
-	print!("1: "); p1::run();
-	print!("2: "); p2::run();
+	print_problems!(p1,p2,p3,p4);
 }
