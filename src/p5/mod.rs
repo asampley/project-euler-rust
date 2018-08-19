@@ -1,4 +1,4 @@
-use prime::PrimeCache;
+use numbers::prime;
 use std::cmp;
 use std::collections::HashMap;
 
@@ -7,7 +7,7 @@ pub fn run() {
 }
 
 fn smallest_divisible(max: u64) -> u64 {
-	let mut prime_cache = PrimeCache::new();
+	let mut prime_cache = prime::PrimeCache::new();
 	let mut prime_counts = HashMap::<u64,u32>::new();
 
 	for x in 0..max+1 {
