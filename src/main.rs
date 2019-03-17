@@ -1,9 +1,11 @@
-mod numbers;
 #[macro_use]
 mod macros;
 
-mods!(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11);
+mod numbers;
+mod problems;
+
+use problems::{p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12};
 
 fn main() {
-	print_problems!(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11);
+	print_problems!(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12);
 }

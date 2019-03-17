@@ -1,4 +1,4 @@
-use numbers::prime;
+use crate::numbers::prime;
 
 pub fn run() {
 	println!("{}", prime_i(10_000));

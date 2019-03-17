@@ -1,4 +1,4 @@
-use numbers::prime;
+use crate::numbers::prime;
 
 pub fn run() {
 	println!("{}", sum_of_primes(2_000_000));

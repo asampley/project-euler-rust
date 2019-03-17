@@ -1,4 +1,4 @@
-use numbers::prime;
+use crate::numbers::prime;
 
 pub fn run() {
 	println!("{}", largest_prime_factor(600_851_475_143));

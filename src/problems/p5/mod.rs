@@ -1,4 +1,4 @@
-use numbers::prime;
+use crate::numbers::prime;
 use std::cmp;
 use std::collections::HashMap;
 

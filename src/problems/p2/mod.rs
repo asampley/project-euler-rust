@@ -1,4 +1,4 @@
-use numbers::fibonacci;
+use crate::numbers::fibonacci;
 
 pub fn run() {
 	println!("{}", sum_of_even(4_000_000));
