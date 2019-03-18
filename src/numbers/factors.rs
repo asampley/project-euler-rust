@@ -6,7 +6,11 @@ pub struct FactorIter {
 
 impl FactorIter {
     pub fn new(number: u64) -> Self {
-        FactorIter { number, last: 0, temp: None }
+        FactorIter {
+            number,
+            last: 0,
+            temp: None,
+        }
     }
 }
 
@@ -17,7 +21,7 @@ impl Iterator for FactorIter {
         if self.temp.is_some() {
             return self.temp.take();
         } else {
-            let factor = (self.last+1..)
+            let factor = (self.last + 1..)
                 .take_while(|i| i * i < self.number)
                 .filter(|i| self.number % i == 0)
                 .nth(0);
@@ -26,10 +30,10 @@ impl Iterator for FactorIter {
                 Some(f) => {
                     self.temp = Some(self.number / f);
                     self.last = f;
-                },
-                None => ()
+                }
+                None => (),
             }
-            
+
             return factor;
         }
     }
