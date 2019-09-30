@@ -6,7 +6,7 @@ pub fn run() {
 }
 
 fn first_with_factors(min_factors: usize) -> u64 {
-        let iter = TriangleIter::new();
+	let iter = TriangleIter::new();
 
-        iter.filter(|t| FactorIter::new(*t).count() >= min_factors).nth(0).unwrap()
+	iter.filter(|t| FactorIter::new(*t).count() >= min_factors).nth(0).unwrap()
 }
