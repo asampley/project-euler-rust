@@ -1,5 +1,5 @@
-use numbers::triangle::TriangleIter;
-use numbers::factors::FactorIter;
+use crate::numbers::triangle::TriangleIter;
+use crate::numbers::factors::FactorIter;
 
 pub fn run() {
 	println!("{}", first_with_factors(500));

@@ -12,11 +12,11 @@ macro_rules! pub_mods {
 macro_rules! print_problems {
 	( $( $x: ident ),* ) => {
 		$(
-                        let start = std::time::Instant::now();
+			let start = std::time::Instant::now();
 			print!("{}: ", stringify!($x));
 			$x::run();
-                        let elapsed = start.elapsed();
-                        println!("  Time taken: {}.{:06}", elapsed.as_secs(), elapsed.subsec_micros());
+			let elapsed = start.elapsed();
+			println!("  Time taken: {}.{:06}", elapsed.as_secs(), elapsed.subsec_micros());
 		)*
 	}
 }

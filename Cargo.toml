@@ -2,5 +2,6 @@
 name = "project-euler-rust"
 version = "0.1.0"
 authors = ["sampley <sampley@ualberta.ca>"]
+edition = "2018"
 
 [dependencies]

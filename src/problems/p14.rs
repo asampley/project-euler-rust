@@ -1,6 +1,4 @@
 use std::collections::HashMap;
-use std::collections::hash_map::Entry;
-use std::cmp::max;
 
 pub fn run() {
     let mut cache = CollatzCache::new();
