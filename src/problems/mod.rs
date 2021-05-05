@@ -1,4 +1,4 @@
-pub_mods!(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
+pub_mods!(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
 
 pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
     let mut problems = Vec::new();
@@ -19,6 +19,7 @@ pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
     problems.push((14, &(p14::run as fn())));
     problems.push((15, &(p15::run as fn())));
     problems.push((16, &(p16::run as fn())));
+    problems.push((17, &(p17::run as fn())));
 
     problems.into_iter()
 }
