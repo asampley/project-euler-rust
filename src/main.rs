@@ -4,8 +4,12 @@ mod macros;
 mod numbers;
 mod problems;
 
-fn_print_problems!{print_problems, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16}
-
 fn main() {
-    print_problems();
+    for (i, problem) in problems::all_problems() {
+        let start = std::time::Instant::now();
+        print!("{}: ", i);
+        problem();
+        let elapsed = start.elapsed();
+        println!("  Time taken: {}.{:06}s", elapsed.as_secs(), elapsed.subsec_micros());
+    }
 }
