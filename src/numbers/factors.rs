@@ -22,14 +22,17 @@ impl Iterator for FactorIter {
 			return self.temp.take();
 		} else {
 			let factor = (self.last + 1..)
-				.take_while(|i| i * i < self.number)
+				.take_while(|i| i * i <= self.number)
 				.filter(|i| self.number % i == 0)
 				.nth(0);
 
 			match factor {
 				Some(f) => {
-					self.temp = Some(self.number / f);
 					self.last = f;
+                    self.temp = match self.number / f {
+                        f_2 if f_2 == f => None,
+                        f_2 => Some(f_2),
+                    }
 				}
 				None => (),
 			}
