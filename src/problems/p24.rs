@@ -37,5 +37,5 @@ fn permutation(n: u64, num_symbols: u64) -> Vec<u64> {
 }
 
 fn symbol(permutation: u64, digit: u64) -> u64 {
-    (permutation / factorial::<u64>(digit)) % (digit + 1)
+    (permutation / factorial::<_, u64>(digit)) % (digit + 1)
 }
