@@ -9,7 +9,9 @@ fn is_amicable(n: u64) -> bool {
 
     if factor_sum_1 == n {
         false
-    } else { 
-        n == FactorIter::new(factor_sum_1).filter(|x| x < &factor_sum_1).sum()
+    } else {
+        n == FactorIter::new(factor_sum_1)
+            .filter(|x| x < &factor_sum_1)
+            .sum()
     }
 }

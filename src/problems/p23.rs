@@ -23,7 +23,8 @@ fn non_abundant_sums() -> u64 {
         }
     }
 
-    sum_of_abundant_numbers.iter()
+    sum_of_abundant_numbers
+        .iter()
         .enumerate()
         .filter(|(_, &a)| !a)
         .map(|(i, _)| i as u64 + 1)

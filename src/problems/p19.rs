@@ -1,4 +1,4 @@
-use num_enum::{ UnsafeFromPrimitive, FromPrimitive };
+use num_enum::{FromPrimitive, UnsafeFromPrimitive};
 
 pub fn run() {
     println!("{}", count_sundays());
@@ -41,8 +41,14 @@ impl Month {
 
         match self {
             Sep | Apr | Jun | Nov => 30,
-            Feb => if leap_year(year) { 29 } else { 28 }
-            _ => 31
+            Feb => {
+                if leap_year(year) {
+                    29
+                } else {
+                    28
+                }
+            }
+            _ => 31,
         }
     }
 }
@@ -69,7 +75,9 @@ fn count_sundays() -> u64 {
 
     for year in 1901..=2000 {
         for month in (0..12).map(|n| Month::from_primitive(n)) {
-            if day_of_week == DayOfWeek::Sunday { sundays += 1; }
+            if day_of_week == DayOfWeek::Sunday {
+                sundays += 1;
+            }
 
             day_of_week = DayOfWeek::from_primitive(day_of_week as u8 + month.days(year));
         }

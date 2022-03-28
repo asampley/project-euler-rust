@@ -6,7 +6,8 @@ pub fn run() {
 }
 
 fn first_ten_digits_of_large_number_sum() -> String {
-    NUMBERS.iter()
+    NUMBERS
+        .iter()
         .map(|s| BigUint::from_str_radix(s, 10).unwrap())
         .sum::<BigUint>()
         .to_str_radix(10)

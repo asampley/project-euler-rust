@@ -1,14 +1,14 @@
-use std::env;
 use std::collections::HashSet;
-
-#[macro_use]
-mod macros;
+use std::env;
 
 mod numbers;
 mod problems;
 
 fn main() {
-    let args: HashSet<usize> = env::args().skip(1).map(|s| s.parse().expect("Supplied argument not a number")).collect();
+    let args: HashSet<usize> = env::args()
+        .skip(1)
+        .map(|s| s.parse().expect("Supplied argument not a number"))
+        .collect();
 
     if args.is_empty() {
         for (i, problem) in problems::all_problems() {
@@ -26,5 +26,9 @@ fn run(i: usize, f: &fn()) {
     print!("{}: ", i);
     f();
     let elapsed = start.elapsed();
-    println!("  Time taken: {}.{:06}s", elapsed.as_secs(), elapsed.subsec_micros());
+    println!(
+        "  Time taken: {}.{:06}s",
+        elapsed.as_secs(),
+        elapsed.subsec_micros()
+    );
 }

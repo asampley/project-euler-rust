@@ -7,7 +7,7 @@ pub mod fibonacci;
 pub mod prime;
 pub mod triangle;
 
-pub fn factorial<T,R>(n: T) -> R
+pub fn factorial<T, R>(n: T) -> R
 where
     T: AddAssign<T> + Ord + One + Copy,
     R: MulAssign<T> + AddAssign<T> + One,

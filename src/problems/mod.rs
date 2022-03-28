@@ -1,31 +1,62 @@
-pub_mods!(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p19, p20, p21, p22, p23, p24, p25, p26);
+pub mod p1;
+pub mod p2;
+pub mod p3;
+pub mod p4;
+pub mod p5;
+pub mod p6;
+pub mod p7;
+pub mod p8;
+pub mod p9;
+pub mod p10;
+pub mod p11;
+pub mod p12;
+pub mod p13;
+pub mod p14;
+pub mod p15;
+pub mod p16;
+pub mod p17;
+pub mod p19;
+pub mod p20;
+pub mod p21;
+pub mod p22;
+pub mod p23;
+pub mod p24;
+pub mod p25;
+pub mod p26;
+
+macro_rules! run {
+    ( $x:ident ) => {
+        &($x::run as fn())
+    };
+}
 
 pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
-    vec![
-        (1, &(p1::run as fn())),
-        (2, &(p2::run as fn())),
-        (3, &(p3::run as fn())),
-        (4, &(p4::run as fn())),
-        (5, &(p5::run as fn())),
-        (6, &(p6::run as fn())),
-        (7, &(p7::run as fn())),
-        (8, &(p8::run as fn())),
-        (9, &(p9::run as fn())),
-        (10, &(p10::run as fn())),
-        (11, &(p11::run as fn())),
-        (12, &(p12::run as fn())),
-        (13, &(p13::run as fn())),
-        (14, &(p14::run as fn())),
-        (15, &(p15::run as fn())),
-        (16, &(p16::run as fn())),
-        (17, &(p17::run as fn())),
-        (19, &(p19::run as fn())),
-        (20, &(p20::run as fn())),
-        (21, &(p21::run as fn())),
-        (22, &(p22::run as fn())),
-        (23, &(p23::run as fn())),
-        (24, &(p24::run as fn())),
-        (25, &(p25::run as fn())),
-        (26, &(p26::run as fn())),
-    ].into_iter()
+    [
+        (1, run!(p1)),
+        (2, run!(p2)),
+        (3, run!(p3)),
+        (4, run!(p4)),
+        (5, run!(p5)),
+        (6, run!(p6)),
+        (7, run!(p7)),
+        (8, run!(p8)),
+        (9, run!(p9)),
+        (10, run!(p10)),
+        (11, run!(p11)),
+        (12, run!(p12)),
+        (13, run!(p13)),
+        (14, run!(p14)),
+        (15, run!(p15)),
+        (16, run!(p16)),
+        (17, run!(p17)),
+        (19, run!(p19)),
+        (20, run!(p20)),
+        (21, run!(p21)),
+        (22, run!(p22)),
+        (23, run!(p23)),
+        (24, run!(p24)),
+        (25, run!(p25)),
+        (26, run!(p26)),
+    ]
+    .into_iter()
 }

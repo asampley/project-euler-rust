@@ -5,8 +5,14 @@ pub fn run() {
 fn score() -> u64 {
     let mut names_mut = NAMES.to_vec();
     names_mut.sort();
-    names_mut.iter()
-        .map(|name| name.as_bytes().iter().map(|b| (b - 0x40) as u64).sum::<u64>())
+    names_mut
+        .iter()
+        .map(|name| {
+            name.as_bytes()
+                .iter()
+                .map(|b| (b - 0x40) as u64)
+                .sum::<u64>()
+        })
         .enumerate()
         .map(|(i, v)| (i + 1) as u64 * v)
         .sum()
