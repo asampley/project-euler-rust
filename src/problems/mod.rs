@@ -23,6 +23,7 @@ pub mod p23;
 pub mod p24;
 pub mod p25;
 pub mod p26;
+pub mod p27;
 
 macro_rules! run {
     ( $x:ident ) => {
@@ -57,6 +58,7 @@ pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
         (24, run!(p24)),
         (25, run!(p25)),
         (26, run!(p26)),
+        (27, run!(p27)),
     ]
     .into_iter()
 }
