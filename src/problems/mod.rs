@@ -15,6 +15,7 @@ pub mod p14;
 pub mod p15;
 pub mod p16;
 pub mod p17;
+pub mod p18;
 pub mod p19;
 pub mod p20;
 pub mod p21;
@@ -50,6 +51,7 @@ pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
         (15, run!(p15)),
         (16, run!(p16)),
         (17, run!(p17)),
+        (18, run!(p18)),
         (19, run!(p19)),
         (20, run!(p20)),
         (21, run!(p21)),
