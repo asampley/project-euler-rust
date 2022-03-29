@@ -22,7 +22,7 @@
 //! Find the value of d < 1000 for which 1/d contains the
 //! longest recurring cycle in its decimal fraction part.
 //!
-//! 
+//!
 //! ## Implementation notes
 //!
 //! Each repeating decimal can be rewritten as as something over 10^n - 1 (several 9s).

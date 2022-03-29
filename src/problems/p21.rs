@@ -7,7 +7,6 @@
 //!
 //! Evaluate the sum of all the amicable numbers under 10000.
 
-
 use crate::numbers::factors::FactorIter;
 
 pub fn run() {

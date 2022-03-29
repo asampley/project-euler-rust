@@ -22,14 +22,14 @@ use crate::numbers::prime::PrimeCache;
 pub fn run() {
     let mut cache = PrimeCache::new();
 
-	println!(
-		"{}",
+    println!(
+        "{}",
         (-999..999)
             .flat_map(|a| (-1000..1000).map(move |b| (a, b)))
             .max_by_key(|(a, b)| prime_count(&mut cache, *a, *b))
             .map(|(a, b)| a * b)
             .unwrap()
-	);
+    );
 }
 
 fn prime_count(cache: &mut PrimeCache, a: i64, b: i64) -> usize {
