@@ -17,6 +17,8 @@
 //!
 //! Find the product of the coefficients a and b, for the quadratic expression that produces the maximum number of primes for consecutive values of n, starting with n = 0.
 
+use itertools::Itertools;
+
 use crate::numbers::prime::PrimeCache;
 
 pub fn run() {
@@ -25,7 +27,7 @@ pub fn run() {
     println!(
         "{}",
         (-999..999)
-            .flat_map(|a| (-1000..1000).map(move |b| (a, b)))
+            .cartesian_product(-1000..=1000)
             .max_by_key(|(a, b)| prime_count(&mut cache, *a, *b))
             .map(|(a, b)| a * b)
             .unwrap()

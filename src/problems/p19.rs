@@ -72,7 +72,7 @@ impl FromPrimitive for DayOfWeek {
     type Primitive = u8;
 
     fn from_primitive(n: Self::Primitive) -> Self {
-        unsafe { Self::from_unchecked(n % 7) }
+        unsafe { Self::unchecked_transmute_from(n % 7) }
     }
 }
 
@@ -80,7 +80,7 @@ impl FromPrimitive for Month {
     type Primitive = u8;
 
     fn from_primitive(n: Self::Primitive) -> Self {
-        unsafe { Self::from_unchecked(n % 12) }
+        unsafe { Self::unchecked_transmute_from(n % 12) }
     }
 }
 

@@ -9,16 +9,16 @@ pub mod triangle;
 
 pub fn factorial<T, R>(n: T) -> R
 where
-    T: AddAssign<T> + Ord + One + Copy,
-    R: MulAssign<T> + AddAssign<T> + One,
+	T: AddAssign<T> + Ord + One + Copy,
+	R: MulAssign<T> + AddAssign<T> + One,
 {
-    let mut result = num::one();
-    let mut factor = num::one();
+	let mut result = num::one();
+	let mut factor = num::one();
 
-    while factor < n {
-        factor += num::one();
-        result *= factor;
-    }
+	while factor < n {
+		factor += num::one();
+		result *= factor;
+	}
 
-    result
+	result
 }
