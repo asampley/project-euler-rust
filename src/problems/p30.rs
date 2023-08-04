@@ -30,9 +30,6 @@ pub fn run() {
 		"{}",
 		(2..=(6 * 9_u32.pow(5)))
 			.filter(|x| digit_power(*x, 5))
-			.inspect(|x| {
-				dbg!(x);
-			})
 			.sum::<u32>()
 	);
 }
