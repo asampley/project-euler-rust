@@ -36,6 +36,7 @@ pub fn all_problems() -> impl Iterator<Item = (usize, &'static fn())> {
 		(26, run!(p26)),
 		(27, run!(p27)),
 		(28, run!(p28)),
+		(29, run!(p29)),
 	]
 	.into_iter()
 }
