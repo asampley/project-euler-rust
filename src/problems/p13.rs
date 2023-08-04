@@ -113,7 +113,10 @@ use num::Num;
 use crate::numbers::digits::Digits;
 
 pub fn run() {
-	println!("{}", first_ten_digits_of_large_number_sum().into_iter().join(""));
+	println!(
+		"{}",
+		first_ten_digits_of_large_number_sum().into_iter().join("")
+	);
 }
 
 fn first_ten_digits_of_large_number_sum() -> Vec<u8> {

@@ -47,16 +47,13 @@
 //! > `(16 * r³ + 26 * r) / 3 + 10 * r² + 1`
 
 pub fn run() {
-    println!(
-        "{}",
-        diagonal_sum(1001),
-    );
+	println!("{}", diagonal_sum(1001),);
 }
 
 fn diagonal_sum(spiral_side: u64) -> u64 {
-    let r = spiral_side / 2;
-    let r2 = r * r;
-    let r3 = r2 * r;
+	let r = spiral_side / 2;
+	let r2 = r * r;
+	let r3 = r2 * r;
 
-    (16 * r3 + 26 * r) / 3 + 10 * r2 + 1
+	(16 * r3 + 26 * r) / 3 + 10 * r2 + 1
 }

@@ -35,28 +35,28 @@
 use num::{BigUint, One, Zero};
 
 pub fn run() {
-    println!(
-        "{}",
-        (1..1000)
-            .map(|x| (cycle_length(x), x))
-            .max()
-            .map(|(_, x)| x)
-            .unwrap()
-    );
+	println!(
+		"{}",
+		(1..1000)
+			.map(|x| (cycle_length(x), x))
+			.max()
+			.map(|(_, x)| x)
+			.unwrap()
+	);
 }
 
 fn cycle_length(mut n: u64) -> u32 {
-    while n % 2 == 0 {
-        n /= 2;
-    }
+	while n % 2 == 0 {
+		n /= 2;
+	}
 
-    while n % 5 == 0 {
-        n /= 5;
-    }
+	while n % 5 == 0 {
+		n /= 5;
+	}
 
-    (1..)
-        .map(|i| (i, BigUint::from(10_u64).pow(i) - BigUint::one()))
-        .find(|(_, p)| p % n == BigUint::zero())
-        .map(|(i, _)| i)
-        .unwrap()
+	(1..)
+		.map(|i| (i, BigUint::from(10_u64).pow(i) - BigUint::one()))
+		.find(|(_, p)| p % n == BigUint::zero())
+		.map(|(i, _)| i)
+		.unwrap()
 }
