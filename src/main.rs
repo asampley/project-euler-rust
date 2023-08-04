@@ -21,7 +21,7 @@ fn main() {
 	}
 }
 
-fn run(i: usize, f: &fn()) {
+fn run(i: usize, f: fn()) {
 	let start = std::time::Instant::now();
 	print!("{}: ", i);
 	f();
