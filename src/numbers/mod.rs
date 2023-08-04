@@ -5,8 +5,10 @@ use num::One;
 pub mod digits;
 pub mod factors;
 pub mod fibonacci;
+pub mod multiples;
 pub mod prime;
 pub mod triangle;
+pub mod powers;
 
 pub fn factorial<T, R>(n: T) -> R
 where

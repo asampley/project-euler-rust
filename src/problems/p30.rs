@@ -21,17 +21,33 @@
 //! digit numbers. In fact, the largest 6 digit number that could even be a sum of its digits fifth
 //! powers is when all digits are 9, and `6 * 9⁵ = 354294`, so we stop our search there.
 //!
+//! To keep constants out of the code, the actual upper bound is generated on the fly by finding
+//! the first multiple of 9⁵ that is less than or equal to the corresponding power of 10 with one
+//! more digit.
+//!
 //! The checking starts at 2, as per the removal of 1 mentioned above.
 
-use crate::numbers::digits::Digits;
+use crate::numbers::{
+	digits::Digits,
+	multiples::MultipleIter,
+	powers::PowerIter,
+};
 
 pub fn run() {
 	println!(
 		"{}",
-		(2..=(6 * 9_u32.pow(5)))
+		(2..=upper_bound(5))
 			.filter(|x| digit_power(*x, 5))
 			.sum::<u32>()
 	);
+}
+
+fn upper_bound(p: u32) -> u32 {
+	PowerIter::new(10).zip(MultipleIter::new(9u32.pow(p)).skip(1))
+		.take_while(|(p, m)| p <= m)
+		.last()
+		.unwrap()
+		.1
 }
 
 fn digit_power(x: u32, p: u32) -> bool {
