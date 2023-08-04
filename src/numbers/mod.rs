@@ -2,6 +2,7 @@ use std::ops::{AddAssign, MulAssign};
 
 use num::One;
 
+pub mod digits;
 pub mod factors;
 pub mod fibonacci;
 pub mod prime;
