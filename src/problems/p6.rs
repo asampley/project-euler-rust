@@ -28,3 +28,20 @@ fn square_of_sum(min: u64, max: u64) -> u64 {
 	let x: u64 = (min..max + 1).sum();
 	x * x
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(385, sum_of_squares(1, 10));
+		assert_eq!(3025, square_of_sum(1, 10));
+		assert_eq!(2640, difference(1, 10));
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(25164150, difference(1, 100))
+	}
+}

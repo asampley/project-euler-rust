@@ -7,23 +7,22 @@
 //! What is the total of all the name scores in the file?
 
 pub fn run() {
-	println!("{}", score());
+	println!("{}", score_sum());
 }
 
-fn score() -> u64 {
+fn score_sum() -> u64 {
 	let mut names_mut = NAMES.to_vec();
 	names_mut.sort();
 	names_mut
-		.iter()
-		.map(|name| {
-			name.as_bytes()
-				.iter()
-				.map(|b| (b - 0x40) as u64)
-				.sum::<u64>()
-		})
+		.into_iter()
+		.map(score)
 		.enumerate()
 		.map(|(i, v)| (i + 1) as u64 * v)
 		.sum()
+}
+
+fn score(name: &str) -> u64 {
+	name.as_bytes().iter().map(|b| (b - 0x40) as u64).sum::<u64>()
 }
 
 const NAMES: &[&str] = &[
@@ -5191,3 +5190,18 @@ const NAMES: &[&str] = &[
 	"BRODERICK",
 	"ALONSO",
 ];
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(53, score("COLIN"))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(871198282, score_sum())
+	}
+}

@@ -30,14 +30,30 @@ use crate::numbers::fibonacci::FibIter;
 use num::{one, BigUint};
 
 pub fn run() {
-	let one_thousand_digits = BigUint::from(10_u8).pow(999);
+	println!("{}", first_fib_index_with_digits(1000));
+}
 
-	println!(
-		"{}",
-		FibIter::<BigUint>::new(one(), one())
-			.enumerate()
-			.find(|(_, x)| x >= &one_thousand_digits)
-			.map(|(i, _)| i)
-			.unwrap() + 1
-	);
+fn first_fib_index_with_digits(digits: u32) -> usize {
+	let min_with_digits = BigUint::from(10_u8).pow(digits - 1);
+
+	FibIter::<BigUint>::new(one(), one())
+		.enumerate()
+		.find(|(_, x)| x >= &min_with_digits)
+		.map(|(i, _)| i + 1)
+		.unwrap()
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(12, first_fib_index_with_digits(3))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(4782, first_fib_index_with_digits(1000))
+	}
 }

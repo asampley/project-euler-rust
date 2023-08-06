@@ -11,7 +11,10 @@ pub struct PowerIter<T> {
 
 impl<T: One> PowerIter<T> {
 	pub fn new(n: T) -> Self {
-		Self { n, next: Some(T::one()) }
+		Self {
+			n,
+			next: Some(T::one()),
+		}
 	}
 }
 
@@ -21,9 +24,6 @@ impl<T: CheckedMul> Iterator for PowerIter<T> {
 	fn next(&mut self) -> Option<Self::Item> {
 		let next = self.next.as_ref().and_then(|x| x.checked_mul(&self.n));
 
-		std::mem::replace(
-			&mut self.next,
-			next,
-		)
+		std::mem::replace(&mut self.next, next)
 	}
 }

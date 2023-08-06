@@ -104,3 +104,13 @@ fn count_sundays() -> u64 {
 fn leap_year(year: u64) -> bool {
 	year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn solution() {
+		assert_eq!(171, count_sundays())
+	}
+}

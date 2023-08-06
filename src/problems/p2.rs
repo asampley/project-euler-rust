@@ -18,3 +18,13 @@ fn sum_of_even(max: u64) -> u64 {
 		.take_while(|f| *f <= max)
 		.sum()
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn solution() {
+		assert_eq!(4613732, sum_of_even(4_000_000))
+	}
+}

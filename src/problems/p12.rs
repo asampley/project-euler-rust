@@ -34,3 +34,18 @@ fn first_with_factors(min_factors: usize) -> u64 {
 		.nth(0)
 		.unwrap()
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(28, first_with_factors(5))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(76576500, first_with_factors(500))
+	}
+}

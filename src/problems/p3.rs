@@ -14,3 +14,18 @@ fn largest_prime_factor(x: u64) -> u64 {
 
 	prime_cache.factors(x).last().unwrap()
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(29, largest_prime_factor(13195))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(6857, largest_prime_factor(600_851_475_143))
+	}
+}

@@ -65,3 +65,18 @@ fn longest_chain_start(max_start: u64, cache: &mut CollatzCache) -> u64 {
 		}
 	})
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(10, CollatzCache::new().collatz_count(13))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(837799, longest_chain_start(1_000_000, &mut CollatzCache::new()))
+	}
+}

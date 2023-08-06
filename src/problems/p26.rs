@@ -35,14 +35,16 @@
 use num::{BigUint, One, Zero};
 
 pub fn run() {
-	println!(
-		"{}",
-		(1..1000)
-			.map(|x| (cycle_length(x), x))
-			.max()
-			.map(|(_, x)| x)
-			.unwrap()
-	);
+	println!("{}", longest_cycle_denominator(0..1000));
+}
+
+fn longest_cycle_denominator(range: impl IntoIterator<Item = u64>) -> u64 {
+	range
+		.into_iter()
+		.map(|x| (cycle_length(x), x))
+		.max()
+		.map(|(_, x)| x)
+		.unwrap()
 }
 
 fn cycle_length(mut n: u64) -> u32 {
@@ -59,4 +61,19 @@ fn cycle_length(mut n: u64) -> u32 {
 		.find(|(_, p)| p % n == BigUint::zero())
 		.map(|(i, _)| i)
 		.unwrap()
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(7, longest_cycle_denominator(1..10))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(983, longest_cycle_denominator(1..1000))
+	}
 }

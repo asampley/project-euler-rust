@@ -47,7 +47,7 @@
 //! > `(16 * r³ + 26 * r) / 3 + 10 * r² + 1`
 
 pub fn run() {
-	println!("{}", diagonal_sum(1001),);
+	println!("{}", diagonal_sum(1001));
 }
 
 fn diagonal_sum(spiral_side: u64) -> u64 {
@@ -56,4 +56,19 @@ fn diagonal_sum(spiral_side: u64) -> u64 {
 	let r3 = r2 * r;
 
 	(16 * r3 + 26 * r) / 3 + 10 * r2 + 1
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(101, diagonal_sum(5))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(669171001, diagonal_sum(1001))
+	}
 }

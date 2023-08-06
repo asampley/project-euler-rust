@@ -232,3 +232,16 @@ const NUMBERS: &[&str] = &[
 	"20849603980134001723930671666823555245252804609722",
 	"53503534226472524250874054075591789781264330331690",
 ];
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn solution() {
+		assert_eq!(
+			vec![5, 5, 3, 7, 3, 7, 6, 2, 3, 0],
+			first_ten_digits_of_large_number_sum()
+		)
+	}
+}

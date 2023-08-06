@@ -13,3 +13,18 @@ pub fn run() {
 fn lattice_paths(n: u64) -> u64 {
 	binomial(n * 2, n)
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(6, lattice_paths(2))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(137846528820, lattice_paths(20))
+	}
+}

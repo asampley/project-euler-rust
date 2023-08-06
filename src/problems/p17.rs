@@ -63,3 +63,18 @@ fn num_letters(n: u64) -> u64 {
 		_ => unimplemented!(),
 	}
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(19, (1..=5).map(|n| num_letters(n)).sum::<u64>())
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(21124, (1..=1000).map(|n| num_letters(n)).sum::<u64>())
+	}
+}

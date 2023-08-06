@@ -50,3 +50,23 @@ fn permutation(n: u64, num_symbols: u64) -> Vec<u64> {
 fn symbol(permutation: u64, digit: u64) -> u64 {
 	(permutation / factorial::<_, u64>(digit)) % (digit + 1)
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(vec![0, 1, 2], permutation(0, 3));
+		assert_eq!(vec![0, 2, 1], permutation(1, 3));
+		assert_eq!(vec![1, 0, 2], permutation(2, 3));
+		assert_eq!(vec![1, 2, 0], permutation(3, 3));
+		assert_eq!(vec![2, 0, 1], permutation(4, 3));
+		assert_eq!(vec![2, 1, 0], permutation(5, 3));
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(vec![2, 7, 8, 3, 9, 1, 5, 4, 6, 0], permutation(999_999, 10))
+	}
+}

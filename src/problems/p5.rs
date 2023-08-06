@@ -34,3 +34,18 @@ fn smallest_divisible(max: u64) -> u64 {
 		.map(|(prime, count)| prime.pow(*count))
 		.product()
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(2520, smallest_divisible(10))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(232792560, smallest_divisible(20))
+	}
+}

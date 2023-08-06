@@ -50,3 +50,18 @@ fn distinct_powers(max_a: u64, max_b: u64) -> u64 {
 
 	n
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(15, distinct_powers(5, 5))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(9183, distinct_powers(100, 100))
+	}
+}

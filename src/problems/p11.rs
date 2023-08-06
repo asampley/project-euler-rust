@@ -135,3 +135,13 @@ fn largest_product(count: usize) -> u64 {
 
 	max_product
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn solution() {
+		assert_eq!(70600674, largest_product(4))
+	}
+}

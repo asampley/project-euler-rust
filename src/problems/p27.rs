@@ -21,16 +21,17 @@ use itertools::Itertools;
 use crate::numbers::prime::PrimeCache;
 
 pub fn run() {
+	println!("{}", coefficient_product(999, 1000));
+}
+
+fn coefficient_product(a_range: i64, b_range: i64) -> i64 {
 	let mut cache = PrimeCache::new();
 
-	println!(
-		"{}",
-		(-999..999)
-			.cartesian_product(-1000..=1000)
-			.max_by_key(|(a, b)| prime_count(&mut cache, *a, *b))
-			.map(|(a, b)| a * b)
-			.unwrap()
-	);
+	(-a_range..a_range)
+		.cartesian_product(-b_range..=b_range)
+		.max_by_key(|(a, b)| prime_count(&mut cache, *a, *b))
+		.map(|(a, b)| a * b)
+		.unwrap()
 }
 
 fn prime_count(cache: &mut PrimeCache, a: i64, b: i64) -> usize {
@@ -40,4 +41,19 @@ fn prime_count(cache: &mut PrimeCache, a: i64, b: i64) -> usize {
 			_ => false,
 		})
 		.count()
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(40, prime_count(&mut PrimeCache::new(), 1, 41))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(-59231, coefficient_product(999, 1000))
+	}
 }

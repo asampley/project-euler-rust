@@ -7,9 +7,24 @@
 use crate::numbers::prime;
 
 pub fn run() {
-	println!("{}", prime_i(10_000));
+	println!("{}", prime_i(10_001 - 1));
 }
 
 fn prime_i(i: usize) -> u64 {
 	prime::PrimeCache::new().iter_mut().nth(i).unwrap()
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(13, prime_i(6 - 1))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(104743, prime_i(10_001 - 1))
+	}
 }

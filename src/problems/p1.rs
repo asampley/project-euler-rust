@@ -16,3 +16,18 @@ fn sum_of_multiples(r: Range<u32>) -> u32 {
 fn good(i: u32) -> bool {
 	i % 3 == 0 || i % 5 == 0
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(23, sum_of_multiples(1..10))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(233168, sum_of_multiples(1..1000))
+	}
+}

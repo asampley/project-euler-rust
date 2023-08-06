@@ -41,7 +41,7 @@ fn non_abundant_sums() -> u64 {
 		.sum()
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
 enum NumberType {
 	Deficient,
 	Perfect,
@@ -57,5 +57,21 @@ impl NumberType {
 			x if x == n => Perfect,
 			_ => Abundant,
 		}
+	}
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(NumberType::Perfect, NumberType::new(28));
+		assert_eq!(NumberType::Abundant, NumberType::new(12));
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(4179871, non_abundant_sums())
 	}
 }

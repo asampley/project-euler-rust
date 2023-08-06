@@ -12,7 +12,10 @@ pub struct MultipleIter<T> {
 
 impl<T: Zero> MultipleIter<T> {
 	pub fn new(n: T) -> Self {
-		Self { n, next: Some(T::zero()) }
+		Self {
+			n,
+			next: Some(T::zero()),
+		}
 	}
 }
 
@@ -22,9 +25,6 @@ impl<T: CheckedAdd> Iterator for MultipleIter<T> {
 	fn next(&mut self) -> Option<Self::Item> {
 		let next = self.next.as_ref().and_then(|x| x.checked_add(&self.n));
 
-		std::mem::replace(
-			&mut self.next,
-			next,
-		)
+		std::mem::replace(&mut self.next, next)
 	}
 }

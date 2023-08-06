@@ -36,3 +36,18 @@ fn largest_palindrome_product(digits: u32) -> u64 {
 		.nth(0)
 		.unwrap()
 }
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert!(is_product(9009, 2))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(906609, largest_palindrome_product(3))
+	}
+}

@@ -34,12 +34,13 @@ use crate::numbers::{
 };
 
 pub fn run() {
-	println!(
-		"{}",
-		(2..=upper_bound(5))
-			.filter(|x| digit_power(*x, 5))
-			.sum::<u32>()
-	);
+	println!("{}", digit_powers_sum(5));
+}
+
+pub fn digit_powers_sum(power: u32) -> u32 {
+	(2..=upper_bound(power))
+		.filter(|x| is_digit_power(*x, power))
+		.sum()
 }
 
 fn upper_bound(p: u32) -> u32 {
@@ -50,8 +51,23 @@ fn upper_bound(p: u32) -> u32 {
 		.1
 }
 
-fn digit_power(x: u32, p: u32) -> bool {
+fn is_digit_power(x: u32, p: u32) -> bool {
 	let sum: u32 = x.digits(10).map(|d| d.pow(p)).sum();
 
 	sum == x
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert_eq!(19316, digit_powers_sum(4))
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(443839, digit_powers_sum(5))
+	}
 }

@@ -10,7 +10,11 @@
 use crate::numbers::factors::FactorIter;
 
 pub fn run() {
-	println!("{}", (1..10000).filter(|&n| is_amicable(n)).sum::<u64>())
+	println!("{}", sum_of_amicable(1..10000))
+}
+
+fn sum_of_amicable(nums: impl Iterator<Item = u64>) -> u64 {
+	nums.filter(|&n| is_amicable(n)).sum::<u64>()
 }
 
 fn is_amicable(n: u64) -> bool {
@@ -22,5 +26,21 @@ fn is_amicable(n: u64) -> bool {
 		n == FactorIter::new(factor_sum_1)
 			.filter(|x| x < &factor_sum_1)
 			.sum()
+	}
+}
+
+#[cfg(test)]
+mod test {
+	use super::*;
+
+	#[test]
+	fn example() {
+		assert!(is_amicable(220));
+		assert!(is_amicable(284));
+	}
+
+	#[test]
+	fn solution() {
+		assert_eq!(31626, sum_of_amicable(1..10000))
 	}
 }
